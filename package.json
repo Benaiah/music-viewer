@@ -36,6 +36,7 @@
     "redux": "^3.2.1",
     "redux-thunk": "^1.0.3",
     "serve-static": "^1.10.2",
-    "string": "^3.3.1"
+    "string": "^3.3.1",
+    "to-title-case": "^1.0.0"
   }
 }
