@@ -1,0 +1,40 @@
+{
+  "name": "music-viewer",
+  "version": "1.0.0",
+  "description": "* Music Viewer This is an application to view and browse music assets on my site. Allows me to change the formatting of what I look at and print while keeping the actual data in plain text. Or something like that, it's mostly just to build something.",
+  "main": "index.js",
+  "scripts": {
+    "babelServer": "babel src/index.es --out-file index.js",
+    "babelClient": "babel ./app/src -d ./app/assets",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --progress ./app/assets/app.js ./app/assets/bundle.js",
+    "watch": ". ./build/build.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "bluebird": "^3.2.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "redux-devtools": "^3.1.0",
+    "redux-devtools-dock-monitor": "^1.0.1",
+    "redux-devtools-log-monitor": "^1.0.4",
+    "webpack": "^1.12.12"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.3.14",
+    "bluebird": "^3.2.1",
+    "express": "^4.13.4",
+    "isomorphic-fetch": "^2.2.1",
+    "promisify-node": "^0.3.0",
+    "react-redux": "^4.2.1",
+    "redux": "^3.2.1",
+    "redux-thunk": "^1.0.3",
+    "serve-static": "^1.10.2",
+    "string": "^3.3.1"
+  }
+}

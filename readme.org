@@ -1,0 +1,5 @@
+* Music Viewer
+This is an application to view and browse music assets on my site.
+Allows me to change the formatting of what I look at and print while
+keeping the actual data in plain text. Or something like that, it's
+mostly just to build something.
