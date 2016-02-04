@@ -2,11 +2,13 @@ import { combineReducers } from 'redux'
 import {
   REQUEST_SONGS, RECEIVE_SONGS, SELECT_SONG, DISPLAY_SONG
 } from './actions'
+import ChordParser from 'chord-parser'
 
 const initialState = {
   selectedSong: {
     name: '',
-    text: ''
+    text: '',
+    chords: []
   },
   songs: {
     isFetching: true,
@@ -17,11 +19,12 @@ const initialState = {
 function selectedSong (state = initialState.selectedSong, action) {
   switch(action.type) {
   case SELECT_SONG:
-    return Object.assign({}, state, {
-      name: action.songName
-    })
-  case DISPLAY_SONG:
     return action.song
+  case DISPLAY_SONG:
+    let s = action.song
+    let tabs = new ChordParser(s.text)
+    s.chords = tabs.unique()
+    return s
   default:
     return state
   }

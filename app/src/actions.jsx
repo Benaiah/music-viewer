@@ -57,7 +57,11 @@ export function fetchSong(song) {
   return dispatch => {
     dispatch(selectSong(song))
     return fetch("/api/songs/" + song.slug)
-      .then(response => response.json())
+      .then(response => {
+        let json = response.json()
+        json.chords = []
+        return json
+      })
       .then(json => dispatch(displaySong(json)))
   }
 }
