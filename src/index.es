@@ -6,6 +6,9 @@ import serveStatic from "serve-static"
 import recursiveReaddir from "recursive-readdir"
 import S from 'string'
 import toTitleCase from 'to-title-case'
+import cfg from 'config-node'
+
+const config = cfg()
 
 const app = express()
 
@@ -27,8 +30,7 @@ app.use('/assets', serveStatic('app/assets', {}))
 
 // API
 
-const apiRootPath = "/home/benaiah/songs/"
-const apiIndexPath = "june-heat.txt"
+const apiRootPath = config.api.rootPath
 
 const filenameToSlug = (song, pathRoot=apiRootPath) => {
   return S(song)

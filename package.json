@@ -30,6 +30,7 @@
     "babel-polyfill": "^6.3.14",
     "bluebird": "^3.2.1",
     "chord-parser": "^0.1.1",
+    "config-node": "^1.2.2",
     "express": "^4.13.4",
     "isomorphic-fetch": "^2.2.1",
     "promisify-node": "^0.3.0",
