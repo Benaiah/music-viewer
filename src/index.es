@@ -24,14 +24,6 @@ app.get('/', (req, res) => {
 
 app.use('/assets', serveStatic('app/assets', {}))
 
-// app.route('/assets')
-//   .use((req, res, next) => {
-//     console.log("Loading asset: " + req.originalUrl)
-//     next()
-//   })
-//   .use(express.static(__dirname + '/app/assets'))
-// app.get('/assets/bundle.js', (req, res) => res.sendFile(__dirname + "/app/assets/bundle.js"))
-
 
 // API
 
