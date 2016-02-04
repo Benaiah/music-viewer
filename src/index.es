@@ -32,18 +32,18 @@ app.use('/assets', serveStatic('app/assets', {}))
 
 const apiRootPath = config.api.rootPath
 
-const filenameToSlug = (song, pathRoot=apiRootPath) => {
+const filenameToSlug = (song, rootPath=apiRootPath) => {
   return S(song)
     .replaceAll('_', ' ')
-    .chompLeft(pathRoot)
+    .chompLeft(rootPath)
     .s
 }
-const filenameToName = (song, pathRoot=apiRootPath) => {
+const filenameToName = (song, rootPath=apiRootPath) => {
   return toTitleCase(
     S(song)
       .chompRight('.txt')
       .chompRight('.md')
-      .chompLeft(pathRoot)
+      .chompLeft(rootPath)
       .between('/')
       .humanize()
       .s)
