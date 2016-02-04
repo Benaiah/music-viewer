@@ -25,9 +25,7 @@ export function fetchSongs() {
       .then(response => { return response.json() })
       .then(data => {
         return {
-          songs: data.songs.map((song) =>
-            S(song).chompRight('.txt').s
-          )
+          songs: data.songs
         }
       })
       .then(json => dispatch(receiveSongs(json)))
@@ -35,10 +33,15 @@ export function fetchSongs() {
 }
 
 export const SELECT_SONG = 'SELECT_SONG'
-export function selectSong(songName) {
+export function selectSong(song) {
   return {
     type: SELECT_SONG,
-    songName: songName
+    song: {
+      name: song.name,
+      slug: song.slug,
+      text: 'Loading...',
+      chords: []
+    }
   }
 }
 
@@ -53,7 +56,7 @@ export function displaySong(song) {
 export function fetchSong(song) {
   return dispatch => {
     dispatch(selectSong(song))
-    return fetch("/api/songs/" + song)
+    return fetch("/api/songs/" + song.slug)
       .then(response => response.json())
       .then(json => dispatch(displaySong(json)))
   }

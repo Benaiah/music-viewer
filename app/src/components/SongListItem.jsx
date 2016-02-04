@@ -2,17 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSong } from '../actions'
 
-const SongListItem = function ({song, onClick}) {
-  return <li>
+const SongListItem = function ({song, onClick, isCurrentSong}) {
+  let selectedClass
+  isCurrentSong ? selectedClass = "selected" : selectedClass=""
+  return <li className={selectedClass}>
     <a href="#" onClick={e => {
         e.preventDefault()
         onClick()
-      }}>{song}</a>
+      }}>{song.name}</a>
   </li>
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {}
+  let isCurrentSong
+  ownProps.song.slug == state.selectedSong.slug ? isCurrentSong = true : isCurrentSong = false
+  return { isCurrentSong }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
