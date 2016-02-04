@@ -44,6 +44,7 @@ const filenameToName = (song, rootPath=apiRootPath) => {
       .chompRight('.txt')
       .chompRight('.md')
       .chompLeft(rootPath)
+      .chompLeft('/')
       .between('/')
       .humanize()
       .s)
