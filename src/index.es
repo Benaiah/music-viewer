@@ -3,6 +3,7 @@ import http from "http"
 import fs from "fs"
 import express from "express"
 import serveStatic from "serve-static"
+import recursiveReaddir from "recursive-readdir"
 import S from 'string'
 import toTitleCase from 'to-title-case'
 
@@ -12,7 +13,7 @@ const hostname = '127.0.0.1'
 const port = 1337
 
 const readFile = Promise.promisify(fs.readFile)
-const readdir = Promise.promisify(fs.readdir)
+const readdir = Promise.promisify(recursiveReaddir)
 
 // App
 
