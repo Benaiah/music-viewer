@@ -1,5 +1,9 @@
 {
   "api": {
     "rootPath": "/home/benaiah/songs"
+  },
+  "server": {
+    "port": 9009,
+    "hostname": "127.0.0.1"
   }
 }

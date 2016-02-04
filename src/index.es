@@ -12,8 +12,8 @@ const config = cfg()
 
 const app = express()
 
-const hostname = '127.0.0.1'
-const port = 1337
+const hostname = config.server.hostname
+const port = config.server.port
 
 const readFile = Promise.promisify(fs.readFile)
 const readdir = Promise.promisify(recursiveReaddir)
@@ -72,4 +72,4 @@ app.get('/api/songs/*', (req, res) => {
     .catch(err => res.json(error))
 })
 
-app.listen(port, () => console.log("Music browser listening on port 1337!"))
+app.listen(port, () => console.log(`Music browser listening on port ${port}!`))
